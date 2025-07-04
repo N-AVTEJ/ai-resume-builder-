@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#38bdf8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title> ZONG - Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title"><i class="fas fa-robot"></i> AI Resume Builder</h1>
+        <p class="subtitle">Craft Your Professional Resume with AI-Powered Intelligence</p>
+        <div class="theme-toggle">
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="form-section">
+            <!-- AI Autofill Section -->
+            <div class="form-group ai-section">
+                <h2><i class="fas fa-magic"></i> AI-Powered Autofill</h2>
+                <div class="input-group">
+                    <input type="text" id="job-role" placeholder="Enter target job role (e.g., Senior Frontend Developer)">
+                    <textarea id="linkedin-text" placeholder="Paste your LinkedIn profile or existing resume text here..."></textarea>
+                    <button id="ai-autofill" class="ai-btn">
+                        <i class="fas fa-wand-magic-sparkles"></i> ZONG Resume
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template Selector -->
+            <div class="form-group">
+                <h2><i class="fas fa-palette"></i> 1. Select Template</h2>
+                <div class="template-grid" id="template-selector">
+                    <!-- Templates will be injected here by JS -->
+                </div>
+            </div>
+
+            <!-- Personal Details -->
+            <div class="form-group">
+                <h2><i class="fas fa-user"></i> 2. Personal Details</h2>
+                <div class="input-group">
+                    <input type="text" id="name" placeholder="Full Name">
+                    <input type="text" id="title" placeholder="Professional Title">
+                    <input type="email" id="email" placeholder="Email Address">
+                    <input type="tel" id="phone" placeholder="Phone Number">
+                    <input type="url" id="linkedin" placeholder="LinkedIn Profile URL">
+                    <input type="url" id="github" placeholder="GitHub Profile URL">
+                    <input type="url" id="portfolio" placeholder="Portfolio Website">
+                    <div class="file-input-wrapper">
+                        <label for="photo" class="file-label">
+                            <i class="fas fa-camera"></i> Upload Profile Photo
+                        </label>
+                        <input type="file" id="photo" accept="image/*">
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Summary Generator -->
+            <div class="form-group ai-section">
+                <h2><i class="fas fa-brain"></i> 3. AI Summary Generator</h2>
+                <div class="input-group">
+                    <textarea id="summary-input" placeholder="Brief description of your background and goals..."></textarea>
+                    <div class="ai-controls">
+                        <button id="generate-summary" class="ai-btn">
+                            <i class="fas fa-magic"></i> Generate AI Summary
+                        </button>
+                        <button id="regenerate-summary" class="ai-btn secondary">
+                            <i class="fas fa-redo"></i> Regenerate
+                        </button>
+                    </div>
+                    <textarea id="summary" placeholder="Your professional summary will appear here..."></textarea>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="form-group">
+                <h2><i class="fas fa-briefcase"></i> 4. Work Experience</h2>
+                <div class="section-controls">
+                    <button id="ai-enhance-exp" class="ai-btn small">
+                        <i class="fas fa-magic"></i> AI Enhance
+                    </button>
+                    <button id="add-experience" class="add-btn">Add Experience</button>
+                </div>
+                <div id="experience-list" class="dynamic-list">
+                    <!-- Experience items will be added here -->
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="form-group">
+                <h2><i class="fas fa-graduation-cap"></i> 5. Education</h2>
+                <div id="education-list" class="dynamic-list">
+                    <!-- Education items will be added here -->
+                </div>
+                <button id="add-education" class="add-btn">Add Education</button>
+            </div>
+
+            <!-- Projects -->
+            <div class="form-group">
+                <h2><i class="fas fa-code"></i> 6. Projects</h2>
+                <div id="projects-list" class="dynamic-list">
+                    <!-- Projects will be added here -->
+                </div>
+                <button id="add-project" class="add-btn">Add Project</button>
+            </div>
+
+            <!-- Skills -->
+            <div class="form-group">
+                <h2><i class="fas fa-tools"></i> 7. Skills</h2>
+                <div class="input-group">
+                    <input type="text" id="target-job" placeholder="Enter target job for skill suggestions">
+                    <button id="ai-skill-suggest" class="ai-btn small">
+                        <i class="fas fa-lightbulb"></i> AI Skill Suggestions
+                    </button>
+                    <input type="text" id="skills-input" placeholder="Enter a skill and press Enter">
+                    <div id="skills-list" class="skills-container">
+                        <!-- Skills will be added here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="form-group">
+                <h2><i class="fas fa-certificate"></i> 8. Certifications</h2>
+                <div id="certifications-list" class="dynamic-list">
+                    <!-- Certifications will be added here -->
+                </div>
+                <button id="add-certification" class="add-btn">Add Certification</button>
+            </div>
+
+            <!-- Languages -->
+            <div class="form-group">
+                <h2><i class="fas fa-language"></i> 9. Languages</h2>
+                <div id="languages-list" class="dynamic-list">
+                    <!-- Languages will be added here -->
+                </div>
+                <button id="add-language" class="add-btn">Add Language</button>
+            </div>
+
+            <!-- Additional Sections -->
+            <div class="form-group">
+                <h2><i class="fas fa-plus-circle"></i> 10. Additional Sections</h2>
+                <div class="section-selector">
+                    <button class="section-btn" data-section="awards">
+                        <i class="fas fa-trophy"></i> Awards
+                    </button>
+                    <button class="section-btn" data-section="volunteering">
+                        <i class="fas fa-hands-helping"></i> Volunteering
+                    </button>
+                    <button class="section-btn" data-section="hobbies">
+                        <i class="fas fa-heart"></i> Hobbies
+                    </button>
+                    <button class="section-btn" data-section="publications">
+                        <i class="fas fa-book"></i> Publications
+                    </button>
+                </div>
+                <div id="additional-sections">
+                    <!-- Additional sections will be added here -->
+                </div>
+            </div>
+
+            <!-- AI Grammar Checker -->
+            <div class="form-group ai-section">
+                <h2><i class="fas fa-spell-check"></i> AI Grammar & Tone</h2>
+                <div class="input-group">
+                    <label for="tone-selector">Select Tone:</label>
+                    <select id="tone-selector" aria-label="Select tone for grammar check">
+                        <option value="professional">Professional</option>
+                        <option value="bold">Bold</option>
+                        <option value="friendly">Friendly</option>
+                    </select>
+                    <button id="grammar-check" class="ai-btn">
+                        <i class="fas fa-check-circle"></i> Check Grammar & Tone
+                    </button>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="form-group">
+                <h2><i class="fas fa-download"></i> Download</h2>
+                <div class="action-buttons">
+                    <button id="download-pdf" class="generate-btn">
+                        <i class="fas fa-file-pdf"></i> Download as PDF
+                    </button>
+                    <button id="preview-resume" class="generate-btn secondary">
+                        <i class="fas fa-eye"></i> Preview
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <div class="preview-controls">
+                <button id="toggle-preview" class="preview-btn">
+                    <i class="fas fa-eye"></i> Toggle Preview
+                </button>
+            </div>
+            <div id="resume-preview" class="resume-preview">
+                <!-- Live preview will be rendered here -->
+                <p class="preview-placeholder">Your AI-enhanced resume will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Loading Modal -->
+    <div id="ai-modal" class="modal">
+        <div class="modal-content">
+            <div class="ai-loading">
+                <i class="fas fa-robot fa-spin"></i>
+                <h3>AI is working its magic...</h3>
+                <p id="ai-status">Processing your request...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html> 
