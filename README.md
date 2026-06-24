@@ -1,41 +1,48 @@
 # AI Resume Builder
 
-A modern, AI-powered resume builder that helps you craft professional resumes with ease. Features live preview, dynamic sections, AI autofill, skill suggestions, grammar/tone checking, and PDF export.
+A modern, AI-assisted resume builder demo that helps you create professional resumes quickly with live preview, dynamic sections, and PDF export.
 
-## Features
+## Key Features
 
-- **AI Autofill:** Paste your LinkedIn or resume text and let AI fill in your details (mocked for demo).
-- **Dynamic Sections:** Add/remove experience, education, projects, skills, certifications, languages, and more.
-- **Live Preview:** See your resume update in real time as you edit.
-- **Theme Toggle:** Switch between light and dark mode.
-- **AI Skill Suggestions:** Get relevant skills for your target job (mocked for demo).
-- **AI Grammar & Tone:** Instantly improve your summary and experience descriptions (mocked for demo).
-- **PDF Export:** Download your resume as a polished PDF.
-- **Responsive Design:** Works beautifully on desktop and mobile.
+- AI Autofill (demo/mocked)
+- Dynamic sections for experience, education, skills, projects, and certifications
+- Live preview while you edit
+- Light/Dark theme toggle
+- PDF export
+- Responsive layout for desktop and mobile
 
-## Getting Started
+## Tech stack
 
-1. **Clone or Download** this repository.
-2. **Open `index.html`** in your web browser. No build step or server required.
+- HTML, CSS, JavaScript (vanilla)
+- html2pdf.js for PDF export
+- Font Awesome and Google Fonts
+
+## Getting started
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/N-AVTEJ/ai-resume-builder-.git
+cd ai-resume-builder-
+```
+
+2. Open `index.html` in your browser — no build step required.
 
 ## Usage
 
-- Fill in your details or use the AI Autofill feature.
-- Add as many sections as you need.
-- Use the AI buttons for summary, skills, and grammar suggestions.
-- Preview your resume live and download as PDF when ready.
+- Edit fields in the form to populate your resume
+- Use AI buttons (mocked) for summary/grammar/skills suggestions
+- Preview updates appear live; export the final resume as PDF
 
 ## Customization
 
-- All AI features are mocked for demo purposes. You can integrate real AI APIs for production use.
-- Easily add more templates or sections by editing `main.js` and `index.html`.
+- Integrate a real AI provider by replacing the mocked autofill logic in `main.js` with your API calls.
+- Add templates by editing the HTML/CSS and the PDF export logic.
 
-## Credits
+## Contributing
 
-- Built with [Font Awesome](https://fontawesome.com/) for icons.
-- PDF export powered by [html2pdf.js](https://github.com/eKoopmans/html2pdf.js).
-- Fonts by [Google Fonts](https://fonts.google.com/).
+Contributions are welcome. Please open an issue or submit a pull request.
 
 ## License
 
-MIT License. Feel free to use, modify, and share! 
+MIT
